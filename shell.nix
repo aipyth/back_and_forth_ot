@@ -20,6 +20,11 @@ in pkgs.mkShell rec {
     pythonPackages.jupyterlab
     pythonPackages.notebook
 
+    pythonPackages.numpy
+    pythonPackages.scipy
+    pythonPackages.matplotlib
+    pythonPackages.tqdm
+
     # System utilities
     pkgs.git
     pkgs.openssl
@@ -64,6 +69,8 @@ in pkgs.mkShell rec {
   postShellHook = ''
     # allow pip to install wheels
     unset SOURCE_DATE_EPOCH
+
+    unset LD_LIBRARY_PATH
   '';
 
 
