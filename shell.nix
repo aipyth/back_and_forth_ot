@@ -25,6 +25,8 @@ in pkgs.mkShell rec {
     pythonPackages.matplotlib
     pythonPackages.tqdm
 
+    pythonPackages.pot
+
     # System utilities
     pkgs.git
     pkgs.openssl
@@ -58,7 +60,7 @@ in pkgs.mkShell rec {
 
   # Run this command, only after creating the virtual environment
   postVenvCreation = ''
-    unset SOURCE_DATE_EPOCH
+    # unset SOURCE_DATE_EPOCH
     
     python -m ipykernel install --user --name=${name} --display-name="${name}"
     pip install -r requirements.txt
@@ -68,9 +70,9 @@ in pkgs.mkShell rec {
   # This is optional and can be left out to run pip manually.
   postShellHook = ''
     # allow pip to install wheels
-    unset SOURCE_DATE_EPOCH
+    # unset SOURCE_DATE_EPOCH
 
-    unset LD_LIBRARY_PATH
+    # unset LD_LIBRARY_PATH
   '';
 
 
